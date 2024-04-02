@@ -34,6 +34,12 @@ repository.
 yarn
 ```
 
+### Install Patch
+
+```bash
+yarn patchinstall
+```
+
 ### Run
 
 ```bash
