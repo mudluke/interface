@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@uniswap/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
-import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
+import { fortmatic, injected, portis, tokenPocket, walletconnect, walletlink } from '../connectors'
 
 export const ROUTER_ADDRESS = '0xb4936c57f5b6B5a247aD6089C56064DF98fFf470'
 
@@ -94,6 +94,22 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D'
+  },
+  OKX_WALLET: {
+    connector: injected,
+    name: 'Okx Wallet',
+    iconName: 'okt.png',
+    description: 'Easy-to-use browser extension.',
+    href: null,
+    color: '#000000'
+  },
+  TOKEN_POCKET: {
+    connector: tokenPocket,
+    name: 'Token Pocket',
+    iconName: 'tokenpocket.webp',
+    description: 'Easy-to-use browser extension.',
+    href: null,
+    color: '#3D8CFE'
   },
   WALLET_CONNECT: {
     connector: walletconnect,

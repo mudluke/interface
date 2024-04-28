@@ -12,6 +12,13 @@ interface Window {
     on?: (...args: any[]) => void
     removeListener?: (...args: any[]) => void
   }
+
+  okxwallet?: {
+    isOkxWallet?: true
+    on?: (...args: any[]) => void
+    removeListener?: (...args: any[]) => void
+  }
+
   web3?: {}
 }
 
