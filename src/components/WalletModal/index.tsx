@@ -204,6 +204,7 @@ export default function WalletModal({
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
     const isMetamask = window.ethereum && window.ethereum.isMetaMask
+    const isOkxwallet = window.okxwallet
     return Object.keys(SUPPORTED_WALLETS).map(key => {
       const option = SUPPORTED_WALLETS[key]
       // check for mobile options
@@ -260,8 +261,32 @@ export default function WalletModal({
         // likewise for generic
         else if (option.name === 'Injected' && isMetamask) {
           return null
+        } else if (option.name === 'MetaMask' && isMetamask) {
+          return (
+            <Option
+              id={`connect-${key}`}
+              onClick={() => {
+                option.connector === connector
+                  ? setWalletView(WALLET_VIEWS.ACCOUNT)
+                  : !option.href && tryActivation(option.connector)
+              }}
+              key={key}
+              active={option.connector === connector}
+              color={option.color}
+              link={option.href}
+              header={option.name}
+              subheader={null} //use option.descriptio to bring back multi-line
+              icon={require('../../assets/images/' + option.iconName)}
+            />
+          )
         }
       }
+
+      if (option.name === 'MetaMask') return null
+
+      // FIX: After the okx wallet is installed, window.okxwallet.isMetaMask === true
+      // Unable to distinguish whether it is an okx connection or a metamask connection
+      if (option.name === 'Okx Wallet' && !isOkxwallet) return null
 
       // return rest of options
       return (
