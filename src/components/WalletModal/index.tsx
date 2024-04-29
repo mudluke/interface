@@ -284,6 +284,8 @@ export default function WalletModal({
 
       if (option.name === 'MetaMask') return null
 
+      // FIX: After the okx wallet is installed, window.okxwallet.isMetaMask === true
+      // Unable to distinguish whether it is an okx connection or a metamask connection
       if (option.name === 'Okx Wallet' && !isOkxwallet) return null
 
       // return rest of options
