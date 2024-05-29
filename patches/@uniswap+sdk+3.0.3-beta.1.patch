@@ -1,14 +1,13 @@
 diff --git a/node_modules/@uniswap/sdk/dist/constants.d.ts b/node_modules/@uniswap/sdk/dist/constants.d.ts
-index 65a9f9b..7e7945a 100644
+index 65a9f9b..73ccc72 100644
 --- a/node_modules/@uniswap/sdk/dist/constants.d.ts
 +++ b/node_modules/@uniswap/sdk/dist/constants.d.ts
-@@ -5,7 +5,9 @@ export declare enum ChainId {
+@@ -5,7 +5,8 @@ export declare enum ChainId {
      ROPSTEN = 3,
      RINKEBY = 4,
      GÖRLI = 5,
 -    KOVAN = 42
 +    KOVAN = 42,
-+    DEV_MUD = 168167,
 +    TESTNET_MUD = 168169,
  }
  export declare enum TradeType {
@@ -25,19 +24,18 @@ index 3b5b50b..41fb18a 100644
 +    168169: Token;
  };
 diff --git a/node_modules/@uniswap/sdk/dist/sdk.cjs.development.js b/node_modules/@uniswap/sdk/dist/sdk.cjs.development.js
-index 1506e17..1ed376f 100644
+index 1506e17..10479fa 100644
 --- a/node_modules/@uniswap/sdk/dist/sdk.cjs.development.js
 +++ b/node_modules/@uniswap/sdk/dist/sdk.cjs.development.js
-@@ -25,6 +25,8 @@ var _SOLIDITY_TYPE_MAXIMA;
+@@ -25,6 +25,7 @@ var _SOLIDITY_TYPE_MAXIMA;
    ChainId[ChainId["RINKEBY"] = 4] = "RINKEBY";
    ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
    ChainId[ChainId["KOVAN"] = 42] = "KOVAN";
-+  ChainId[ChainId["DEV_MUD"] = 168167] = "DEV_MUD";
 +  ChainId[ChainId["TESTNET_MUD"] = 168169] = "TESTNET_MUD";
  })(exports.ChainId || (exports.ChainId = {}));
  
  (function (TradeType) {
-@@ -38,7 +40,7 @@ var _SOLIDITY_TYPE_MAXIMA;
+@@ -38,7 +39,7 @@ var _SOLIDITY_TYPE_MAXIMA;
    Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
  })(exports.Rounding || (exports.Rounding = {}));
  
@@ -46,7 +44,7 @@ index 1506e17..1ed376f 100644
  var INIT_CODE_HASH = '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f';
  var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
  
-@@ -372,7 +374,7 @@ function Currency(decimals, symbol, name) {
+@@ -372,7 +373,7 @@ function Currency(decimals, symbol, name) {
   * The only instance of the base class `Currency`.
   */
  
@@ -55,7 +53,7 @@ index 1506e17..1ed376f 100644
  var ETHER = Currency.ETHER;
  
  var _WETH;
-@@ -438,7 +440,7 @@ function currencyEquals(currencyA, currencyB) {
+@@ -438,7 +439,7 @@ function currencyEquals(currencyA, currencyB) {
      return currencyA === currencyB;
    }
  }
@@ -65,19 +63,18 @@ index 1506e17..1ed376f 100644
  var _toSignificantRoundin, _toFixedRounding;
  var Decimal = /*#__PURE__*/toFormat(_Decimal);
 diff --git a/node_modules/@uniswap/sdk/dist/sdk.esm.js b/node_modules/@uniswap/sdk/dist/sdk.esm.js
-index 21c49d6..770ba45 100644
+index 21c49d6..c0029e8 100644
 --- a/node_modules/@uniswap/sdk/dist/sdk.esm.js
 +++ b/node_modules/@uniswap/sdk/dist/sdk.esm.js
-@@ -21,6 +21,8 @@ var ChainId;
+@@ -21,6 +21,7 @@ var ChainId;
    ChainId[ChainId["RINKEBY"] = 4] = "RINKEBY";
    ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
    ChainId[ChainId["KOVAN"] = 42] = "KOVAN";
-+  ChainId[ChainId["DEV_MUD"] = 168167] = "DEV_MUD";
 +  ChainId[ChainId["TESTNET_MUD"] = 168169] = "TESTNET_MUD";
  })(ChainId || (ChainId = {}));
  
  var TradeType;
-@@ -38,7 +40,7 @@ var Rounding;
+@@ -38,7 +39,7 @@ var Rounding;
    Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
  })(Rounding || (Rounding = {}));
  
@@ -86,7 +83,7 @@ index 21c49d6..770ba45 100644
  var INIT_CODE_HASH = '0x96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f';
  var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
  
-@@ -372,7 +374,7 @@ function Currency(decimals, symbol, name) {
+@@ -372,7 +373,7 @@ function Currency(decimals, symbol, name) {
   * The only instance of the base class `Currency`.
   */
  
@@ -95,7 +92,7 @@ index 21c49d6..770ba45 100644
  var ETHER = Currency.ETHER;
  
  var _WETH;
-@@ -438,7 +440,7 @@ function currencyEquals(currencyA, currencyB) {
+@@ -438,7 +439,7 @@ function currencyEquals(currencyA, currencyB) {
      return currencyA === currencyB;
    }
  }
