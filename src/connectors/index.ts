@@ -30,11 +30,11 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [1, 3, 4, 5, 42, 168167]
+  supportedChainIds: [1, 3, 4, 5, 42, 168169]
 })
 
 export const tokenPocket = new TPConnector({
-  supportedChainIds: [1, 3, 4, 5, 42, 168167]
+  supportedChainIds: [1, 3, 4, 5, 42, 168169]
 })
 export const walletconnect = new WalletConnectConnector({
   rpc: { 1: NETWORK_URL },
