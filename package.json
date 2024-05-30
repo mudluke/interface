@@ -87,7 +87,7 @@
   "scripts": {
     "patchinstall": "node patch.js && patch-package",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
