@@ -4,7 +4,7 @@ import { TokenList } from '@uniswap/token-lists/dist/types'
 import { DEFAULT_LIST_OF_LISTS, DEFAULT_TOKEN_LIST_URL } from '../../constants/lists'
 import { updateVersion } from '../global/actions'
 import { acceptListUpdate, addList, fetchTokenList, removeList, selectList } from './actions'
-import UNISWAP_DEFAULT_LIST from '@uniswap/default-token-list'
+// import UNISWAP_DEFAULT_LIST from '@uniswap/default-token-list'
 
 export interface ListsState {
   readonly byUrl: {
@@ -38,7 +38,33 @@ const initialState: ListsState = {
     }, {}),
     [DEFAULT_TOKEN_LIST_URL]: {
       error: null,
-      current: UNISWAP_DEFAULT_LIST,
+      current: {
+        name: 'TESTNET MUD Tokens',
+        logoURI: 'https://www.gemini.com/static/images/loader.png',
+        keywords: ['testnet mud'],
+        timestamp: '2024-05-29T01:40:34.305Z',
+        tokens: [
+          {
+            chainId: 168169,
+            address: '0xa2F921913eed72D908CE1D7611E76c432B39eF2F',
+            name: 'TetherToken',
+            symbol: 'BUSDT',
+            decimals: 18
+          },
+          {
+            chainId: 168169,
+            address: '0x82f9d23cB62Ec0016109B7C4b8dB34890FdBA0F0',
+            name: 'Wrapped MUD',
+            symbol: 'WMUD',
+            decimals: 18
+          }
+        ],
+        version: {
+          major: 1,
+          minor: 0,
+          patch: 0
+        }
+      },
       loadingRequestId: null,
       pendingUpdate: null
     }
